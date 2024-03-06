@@ -1,6 +1,7 @@
 // This file should set up the express server as shown in the lecture code
 import express from "express";
 import * as configRoutes from "./routes/index.js";
+import * as helper from "./helper.js";
 
 const app = express();
 app.use(express.json());
