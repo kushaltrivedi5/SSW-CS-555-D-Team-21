@@ -37,6 +37,30 @@ The user login functionality is implemented using HTML, CSS, and TypeScript, alo
 
 - **testcases.py**: This Python file serves as the backend for user authentication. It includes functions to validate user credentials, such as username and password, against the EEG database. Additionally, it handles user authentication requests and provides appropriate responses based on the validation results.
 
+# User Story: Easy Navigation and Feature Understanding for EEG Speech Classification
+To ensure the EEG speech classification web application meets user needs and acceptance criteria, here's a summary of the plan:
+
+Clear Navigation:
+
+Implement a well-organized navigation menu with descriptive labels.
+Use dropdown menus or nested navigation for advanced features.
+Intuitive User Interface:
+
+Design a simple and clear interface with familiar UI elements.
+Provide visual cues to indicate interactive elements.
+Help/Tutorial Sections:
+
+Include a dedicated "Help" or "Tutorial" section.
+Create informative guides with step-by-step instructions and examples.
+Consistent Interactions:
+
+Ensure consistency in UI elements and layout across all pages.
+Provide feedback to users for their actions.
+Testing and Feedback:
+
+Conduct usability testing with target users.
+Gather feedback to refine the interface iteratively.
+
 ## Note
 
 - **Early Stage Project**: It's important to note that this repository is in the initial phase of development. There are upcoming sprints planned to further enhance the project.
