@@ -1,0 +1,15 @@
+.abc{
+    margin: 150px;    
+}
+.row{
+    margin-top: 10px;
+}
+.pr{
+    position: fixed;
+    font-size: larger;
+    padding-left: 10px;
+}
+.cr{
+    padding-left: 60%;
+    font-size: larger;
+}

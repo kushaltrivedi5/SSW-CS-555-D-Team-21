@@ -1,0 +1,80 @@
+<!-- <div class="row">
+    <div class="col-6 offset-3">
+        <div class="d-grid">
+            <button class="btn btn-primary" (click)="loginSubmited">Log In</button>
+                                      
+        </div>                        
+    </div>                    
+</div> -->
+
+<div class="abc">
+    <div class="container form ">
+        <div class="border p-3 rounded-3">
+            <form class="" [formGroup]="loginForm">
+                <div class="row g-0">
+                    <div class="col text-center p-2 mb-3 bg-light">
+                        <span class="fs-3">LogIn</span>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email">
+                        <div class="form-text text-danger"
+                            *ngIf="Email.errors?.['required']&&(Email.dirty||Email.touched)">Email is required</div>
+                        <div class="form-text text-danger"
+                            *ngIf="Email.errors?.['email']&&(Email.dirty||Email.touched)">Email is Invalid</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password">
+                        <div class="form-text text-danger"
+                            *ngIf="PWD.errors?.['required']&&(Email.dirty||Email.touched)">Password is required</div>
+                    </div>
+                </div>
+
+                <div class="pr">
+                    <input type="radio" id="p" name="person" value="parent">
+                    <label>Parent</label>
+                </div>
+                <div class="cr">
+                    <input type="radio" id="c" name="person" value="child">
+                    <label>Child</label>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6 offset-3">
+                        <div class="d-grid">
+                            <button class="btn btn-primary" (click)="loginSubmited">Log In</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <div class="d-grid">
+                    <button class="btn btn-primary" (click)="openDialog()"> Sign up
+                    </button>
+                </div>
+                </div>
+            </div>
+            <!-- <button
+                mat-raised-button
+                    style="background-color: #3a68b7; color: white"
+                    (click)="openDialog()" > Sign up
+             </button>
+            <div>
+                <button >
+                    <a  style=" text-decoration: none; color: black;" routerLink="signuplink" >SignUp</a>
+                    <router-outlet></router-outlet>
+                </button>
+            </div> -->
+
+        </div>
+    </div>
+</div>
