@@ -1,6 +1,6 @@
 # SSW-CS-555-D-Team-21 - AgiSynergy EEG project
 
-# Architecture and design of the web application, including user interface mockups
+# Architecture and Design Of The Web Application, Including User Interface Mockups
 
 Architecture:
 
