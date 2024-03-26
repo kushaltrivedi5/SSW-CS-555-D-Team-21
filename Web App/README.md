@@ -1,1 +1,2 @@
-# SSW-CS-555-D-Team-21
+# AcademiaSphere
+University Management System
