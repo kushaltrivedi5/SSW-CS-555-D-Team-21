@@ -1,0 +1,70 @@
+digraph {
+	graph [size="12,12"]
+	node [align=left fontname=monospace fontsize=10 height=0.2 ranksep=0.1 shape=box style=filled]
+	5707668432 [label="
+ (1, 5)" fillcolor=darkolivegreen1]
+	4515065632 [label=LogSoftmaxBackward0]
+	4515067024 -> 4515065632
+	4515067024 [label=AddmmBackward0]
+	5703140304 -> 4515067024
+	5707667872 [label="classifier.0.bias
+ (5)" fillcolor=lightblue]
+	5707667872 -> 5703140304
+	5703140304 [label=AccumulateGrad]
+	5703146976 -> 4515067024
+	5703146976 [label=ReluBackward0]
+	5703139968 -> 5703146976
+	5703139968 [label=AddmmBackward0]
+	5703147696 -> 5703139968
+	5707667792 [label="encoder.4.bias
+ (128)" fillcolor=lightblue]
+	5707667792 -> 5703147696
+	5703147696 [label=AccumulateGrad]
+	5703139440 -> 5703139968
+	5703139440 [label=ReluBackward0]
+	5703146544 -> 5703139440
+	5703146544 [label=AddmmBackward0]
+	5703146640 -> 5703146544
+	5699551952 [label="encoder.2.bias
+ (256)" fillcolor=lightblue]
+	5699551952 -> 5703146640
+	5703146640 [label=AccumulateGrad]
+	5703139536 -> 5703146544
+	5703139536 [label=ReluBackward0]
+	5703143952 -> 5703139536
+	5703143952 [label=AddmmBackward0]
+	5703143616 -> 5703143952
+	5699435280 [label="encoder.0.bias
+ (512)" fillcolor=lightblue]
+	5699435280 -> 5703143616
+	5703143616 [label=AccumulateGrad]
+	5703143328 -> 5703143952
+	5703143328 [label=TBackward0]
+	5703140016 -> 5703143328
+	5702494048 [label="encoder.0.weight
+ (512, 50880)" fillcolor=lightblue]
+	5702494048 -> 5703140016
+	5703140016 [label=AccumulateGrad]
+	5703146928 -> 5703146544
+	5703146928 [label=TBackward0]
+	5703137072 -> 5703146928
+	5699435120 [label="encoder.2.weight
+ (256, 512)" fillcolor=lightblue]
+	5699435120 -> 5703137072
+	5703137072 [label=AccumulateGrad]
+	5703146400 -> 5703139968
+	5703146400 [label=TBackward0]
+	5703140064 -> 5703146400
+	5707667632 [label="encoder.4.weight
+ (128, 256)" fillcolor=lightblue]
+	5707667632 -> 5703140064
+	5703140064 [label=AccumulateGrad]
+	5703142896 -> 4515067024
+	5703142896 [label=TBackward0]
+	5703139488 -> 5703142896
+	5707667712 [label="classifier.0.weight
+ (5, 128)" fillcolor=lightblue]
+	5707667712 -> 5703139488
+	5703139488 [label=AccumulateGrad]
+	4515065632 -> 5707668432
+}
