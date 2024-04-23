@@ -8,6 +8,7 @@ import register from "./users/registration.js";
 import resetpassword from "./users/resetpassword.js";
 import logout from "./users/logout.js";
 import dashboard from "./dashboard.js";
+import fileupload from "./fileupload.js";
 import user_management from "./administration/users.js";
 
 
@@ -22,6 +23,8 @@ function route(app) {
 
     app.use("/logout", logout);
     app.use("/dashboard", dashboard);
+
+    app.use("/fileupload", fileupload)
 
     app.use("/users", adminsOnly);
     app.use("/users", user_management);
