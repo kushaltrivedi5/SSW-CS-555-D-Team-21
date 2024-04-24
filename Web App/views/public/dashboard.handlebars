@@ -1,27 +1,110 @@
+<!-- HTML code -->
 <div class="d-flex fs-2">
     <div class="my-auto">
         <img class="iconSwitch" src="./icons/dashboardCourse.svg" alt="loginIcon"> Dashboard
     </div>
 </div>
 
-
-<div class="row mt-4">
+<div class="mt-4">
     <div class="col-md-4 col-12 mb-5">
         <div class="card glassEffect">
             <div class="card-header glassEffect">Upload EEG Data</div>
             <div class="card-body">
-                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                <form id="uploadForm">
+                    <input class="form-control form-control-sm" name="file" id="formFileSm" type="file">
+                    <button type="button" class="btn btn-info mt-3" id="uploadBtn">Upload</button>
+                    <!-- Change type to button -->
+                </form>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-2 col-12 mb-5 eegbox">
+            <div class="card glassEffect">
+                <div class="card-header glassEffect">EEG Output</div>
+                <div class="card-body">
+                    <ol type="1" id="eegoutput">
 
-    <div class="col-md-12 col-12 mb-5">
-        <div class="card glassEffect">
-            <div class="card-header glassEffect">EEG Output</div>
-            <div class="card-body">
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-12 mb-5 eegbox">
+            <div class="card glassEffect">
+                <div class="card-header glassEffect">EEG Occurences</div>
+                <div class="card-body">
+                    <ol type="1" id="textOccurrencesContainer">
 
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
+
+<!-- JavaScript code -->
+<script>
+    $(document).ready(function () {
+        $(".eegbox").hide();
+        $("#uploadBtn").click(function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Create FormData object
+            var formData = new FormData();
+            formData.append("file", $("#formFileSm")[0].files[0]);
+
+            // Make AJAX request
+            $.ajax({
+                url: "/dashboard/upload",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.length > 0) {
+                        $(".eegbox").show();
+                        var html = "";
+                        for (var i = 0; i < response.length; i++) {
+                            html = html + "<li>" + response[i] + "</li>";
+                        }
+
+                        const occurrences = countOccurrences(response);
+                        renderTextOccurrences(occurrences);
+
+                        $("#eegoutput").append(html);
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    // Handle error response
+                }
+            });
+        });
+    });
+
+    const countOccurrences = (textArray) => {
+        const counts = {};
+
+        textArray.forEach(text => {
+            counts[text] = (counts[text] || 0) + 1;
+        });
+
+        return counts;
+    };
+    const renderTextOccurrences = (counts) => {
+        const container = document.getElementById('textOccurrencesContainer');
+        container.innerHTML = ''; // Clear previous content
+
+        for (const text in counts) {
+            if (counts.hasOwnProperty(text)) {
+                const count = counts[text];
+                const listItem = document.createElement('li');
+                listItem.textContent = `${text}: ${count}`;
+                container.appendChild(listItem);
+            }
+        }
+    };
+
+</script>

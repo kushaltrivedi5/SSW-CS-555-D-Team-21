@@ -5,19 +5,16 @@ import MongoStore from "connect-mongo";
 import exphbs from "express-handlebars";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-
-import { dbConnection } from "./config/mongoConnection.js";
 import route from "./routes/index.js";
 
-
-const databaseconnection = dbConnection();
-const app = express();
-
-// Serve static files from the 'icons' directory
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
+
+const app = express();
+
 const iconsDir = express.static(__dirname + "/static/icons");
 app.use("/icons", iconsDir);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -41,7 +38,6 @@ app.use("/", (req, res, next) => {
   next();
 });
 
-
 const eqHelper = function (a, b) {
   return a === b;
 };
@@ -55,6 +51,7 @@ const gtD = function (a, b) {
   const y = new Date(b);
   return x > y;
 };
+
 const ifUserType = function (roleString, session_type, options) {
   const roleArray = roleString.split(',');
 
@@ -72,12 +69,12 @@ const handlebars = exphbs.create({
 });
 
 app.engine("handlebars", handlebars.engine);
-
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
-route(app);
 
+// Load routes
+route(app);
 
 app.listen(8080, () => {
   console.log("Running web server on port 8080");
