@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2 col-12 mb-5 eegbox">
+        <div class="col-md-3 col-12 mb-5 eegbox">
             <div class="card glassEffect">
                 <div class="card-header glassEffect">EEG Output</div>
                 <div class="card-body">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 col-12 mb-5 eegbox">
+        <div class="col-md-3 col-12 mb-5 eegbox">
             <div class="card glassEffect">
                 <div class="card-header glassEffect">EEG Occurences</div>
                 <div class="card-body">
@@ -72,7 +72,7 @@
                         const occurrences = countOccurrences(response);
                         renderTextOccurrences(occurrences);
 
-                        $("#eegoutput").append(html);
+                        $("#eegoutput").html(html);
 
                     }
                 },

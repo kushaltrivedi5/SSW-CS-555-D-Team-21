@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as prefRoute from "../data/users/setPreference.js";
 import routeError from "./routeerror.js";
+import { fetchEEGData, fetchEEGDataInfo } from "../data/users/fetchEEGData.js";
 
 const router = Router();
 
@@ -11,8 +12,28 @@ router
         return res.render("admin/dashboard");
       }
 
-      let renderObjs = {};
+      const result = await fetchEEGData(req);
+      let renderObjs = {
+        eegdata: result
+      };
       return res.render("public/fileupload", renderObjs);
+
+    } catch (e) {
+      routeError(res, e);
+    }
+  })
+  .get("/:eegid", async (req, res) => {
+    try {
+
+
+      const result = await fetchEEGDataInfo(req);
+
+      const occurrences = countOccurrences(result.data);
+      let renderObjs = {
+        eegdata: result,
+        occurrences: occurrences
+      };
+      return res.render("public/vieweeg", renderObjs);
 
     } catch (e) {
       routeError(res, e);
@@ -32,4 +53,13 @@ router
     }
   });
 
+const countOccurrences = (textArray) => {
+  const counts = {};
+
+  textArray.forEach(text => {
+    counts[text] = (counts[text] || 0) + 1;
+  });
+
+  return counts;
+};
 export default router;

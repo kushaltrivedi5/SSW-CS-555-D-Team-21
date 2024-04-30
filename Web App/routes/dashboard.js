@@ -3,6 +3,7 @@ import * as prefRoute from "../data/users/setPreference.js";
 import routeError from "./routeerror.js";
 import multer from 'multer';
 import axios from 'axios';
+import uploadEEGData from "../data/users/uploadEEGData.js"
 
 const router = Router();
 const upload = multer();
@@ -52,6 +53,8 @@ router
           'Content-Type': 'multipart/form-data'
         }
       });
+
+      let uploadData = await uploadEEGData(response.data.result, req);
 
       return res.json(response.data.result)
 

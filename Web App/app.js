@@ -6,6 +6,12 @@ import exphbs from "express-handlebars";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import route from "./routes/index.js";
+import SMTPConnect from "./config/smptConnection.js";
+import { dbConnection } from "./config/mongoConnection.js";
+
+const smptconnection = SMTPConnect();
+const databaseconnection = dbConnection();
+
 
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
@@ -25,7 +31,7 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.mongoServerUrl,
-      dbName: "UMS",
+      dbName: process.env.mongoDbname,
     }),
   })
 );
@@ -75,6 +81,21 @@ app.set("views", "./views");
 
 // Load routes
 route(app);
+
+smptconnection.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+    throw "Failed to connect to SMTP";
+  } else {
+    console.log("Connected to SMTP Server");
+  }
+});
+
+if (await databaseconnection) {
+  console.log("Connected to Database Server");
+} else {
+  throw "Failed to connect to database";
+}
 
 app.listen(8080, () => {
   console.log("Running web server on port 8080");

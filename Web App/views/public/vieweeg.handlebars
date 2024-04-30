@@ -1,0 +1,32 @@
+<div class="d-flex fs-2">
+    <div class="my-auto">
+        <img class="iconSwitch" src="../icons/file.svg" alt="loginIcon"> View Output : {{eegdata.filename}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-12 mb-5 eegbox">
+        <div class="card glassEffect">
+            <div class="card-header glassEffect">EEG Output</div>
+            <div class="card-body">
+                <ol type="1" id="eegoutput">
+                    {{#each eegdata.data}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-12 mb-5 eegbox">
+        <div class="card glassEffect">
+            <div class="card-header glassEffect">EEG Occurences</div>
+            <div class="card-body">
+                <ol type="1" id="textOccurrencesContainer">
+                    {{#each occurrences}}
+                    <li>{{@key}}: {{this}}</li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

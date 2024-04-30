@@ -5,30 +5,28 @@
 </div>
 
 
-<div class="row mt-4 col-4">
-    <div class="table-responsive glassEffect my-4">
-        <table class="table table-striped h-100 mb-0">
-            <thead>
-                <tr>
-                    <th scope="col">File Name</th>
-                    <th scole="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="searchData">
-                    <td>file1.numpy</td>
-                    <td>
-                        <a href="#" class="btn btn-info">View</a>
-                    </td>
-                </tr>
-                <tr class="searchData">
-                    <td>file2.numpy</td>
-                    <td>
-                        <a href="#" class="btn btn-info">View</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
+<div class="row">
+    <div class="mt-4 col-4">
+        <div class="table-responsive glassEffect my-4">
+            <table class="table table-striped h-100 mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">File Name</th>
+                        <th scole="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each eegdata}}
+                    <tr class="searchData">
+                        <td>{{this.filename}}</td>
+                        <td>
+                            <a href="/fileupload/{{this._id}}" class="btn btn-info viewbtn">View</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
