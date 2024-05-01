@@ -11,7 +11,7 @@
             <div class="card-header glassEffect">Upload EEG Data</div>
             <div class="card-body">
                 <form id="uploadForm">
-                    <input class="form-control form-control-sm" name="file" id="formFileSm" type="file">
+                    <input class="form-control form-control-sm" name="file" id="formFileSm" type="file" accept=".npy">
                     <button type="button" class="btn btn-info mt-3" id="uploadBtn">Upload</button>
                     <!-- Change type to button -->
                 </form>
@@ -49,6 +49,16 @@
         $(".eegbox").hide();
         $("#uploadBtn").click(function (event) {
             event.preventDefault(); // Prevent default form submission
+
+
+            // Get the selected file
+            var selectedFile = $("#formFileSm")[0].files[0];
+
+            // Validate the file extension
+            if (!selectedFile || !selectedFile.name.toLowerCase().endsWith('.npy')) {
+                alert('Please select a .npy file.');
+                return;
+            }
 
             // Create FormData object
             var formData = new FormData();
