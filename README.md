@@ -8,7 +8,7 @@ Client-Server Model: Web application follows a client-server model where the bro
 Frontend: Developed using HTML, CSS, and JavaScript for dynamic user interfaces.
 Backend: Built with Node.js and Python, utilizing frameworks like Express.js. Handles client requests, interacts with the database, and performs business logic.
 Database: MongoDB.
-APIs: Flask.
+API: Flask.
 Authentication and Authorization: Implements user authentication and authorization using session-based authentication.
 
 User Interface (UI) Design: Modern design principles ensure a clean and intuitive layout, focusing on usability and accessibility.
@@ -46,14 +46,9 @@ Intuitive User Interface:
 
 Design a simple and clear interface with familiar UI elements.
 Provide visual cues to indicate interactive elements.
-Help/Tutorial Sections:
-
-Include a dedicated "Help" or "Tutorial" section.
-Create informative guides with step-by-step instructions and examples.
-Consistent Interactions:
-
 Ensure consistency in UI elements and layout across all pages.
 Provide feedback to users for their actions.
+
 Testing and Feedback:
 
 Conduct usability testing with target users.
