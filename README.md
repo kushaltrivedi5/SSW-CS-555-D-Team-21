@@ -5,13 +5,11 @@
 Architecture:
 
 Client-Server Model: Web application follows a client-server model where the browser (client) communicates with the server to fetch data and perform actions.
-Frontend: Developed using HTML, CSS, and JavaScript with React.js for dynamic user interfaces.
-Backend: Built with Node.js or Python, utilizing frameworks like Express.js or Django. Handles client requests, interacts with the database, and performs business logic.
-Database: Relational databases such as MySQL or PostgreSQL store structured data, including user information and application data.
-APIs: RESTful APIs define endpoints and data formats for communication between frontend and backend.
-Authentication and Authorization: Implements user authentication and authorization using techniques like JSON Web Tokens (JWT) or session-based authentication.
-Scalability and Performance: Designed for scalability and performance with techniques like load balancing, caching, and horizontal scaling.
-Design:
+Frontend: Developed using HTML, CSS, and JavaScript for dynamic user interfaces.
+Backend: Built with Node.js and Python, utilizing frameworks like Express.js. Handles client requests, interacts with the database, and performs business logic.
+Database: MongoDB.
+APIs: Flask.
+Authentication and Authorization: Implements user authentication and authorization using session-based authentication.
 
 User Interface (UI) Design: Modern design principles ensure a clean and intuitive layout, focusing on usability and accessibility.
 Responsive Design: Ensures seamless experience across various devices and screen sizes.
