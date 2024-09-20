@@ -1,2 +1,1 @@
-# AcademiaSphere
-University Management System
+
